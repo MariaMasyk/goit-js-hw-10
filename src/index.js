@@ -12,6 +12,7 @@ const refs = {
   select: document.querySelector('.breed-select'),
   div: document.querySelector('.cat-info'),
   loader: document.querySelector('.loader'),
+  errDiv: document.querySelector('error'),
 };
 
 refs.select.classList.add('is-hidden');
@@ -34,7 +35,8 @@ fetchBreeds()
     setTimeout(() => {
       refs.select.classList.add('is-hidden');
       refs.loader.classList.add('is-hidden');
-      Notify.failure(`${err}`);
+      Notify.failure(`${'Oops! Something went wrong! Try reloading the page!'}`);
+      refs.errDiv.classList.remove('is-hidden');
     }, 500);
   });
 
